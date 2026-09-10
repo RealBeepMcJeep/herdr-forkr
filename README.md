@@ -1,4 +1,4 @@
-# forkr
+# herdr-forkr
 
 Fork the focused agent's conversation into a new tab, split, or workspace in
 [Herdr](https://herdr.dev), and keep the original running.
