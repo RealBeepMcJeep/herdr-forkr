@@ -17,6 +17,16 @@
 
 set -u
 
+# The Herdr server (which spawns this script) can run with a much thinner
+# PATH than an interactive shell on Windows, so bare tool names like jq that
+# resolve fine at a prompt can 404 here. Widen PATH with the usual install
+# spots before doing anything else; harmless where they don't exist.
+case "$(uname -s 2>/dev/null)" in
+  MSYS*|MINGW*|CYGWIN*)
+    PATH="$PATH:/c/Program Files/Git/usr/bin:${LOCALAPPDATA:-/c/Users/$USER/AppData/Local}/Microsoft/WinGet/Links"
+    ;;
+esac
+
 herdr=${HERDR_BIN_PATH:-herdr}
 
 notify() {

@@ -5,31 +5,35 @@ min_herdr_version = "0.8.0"
 description = "Fork the focused agent's conversation into a new tab, split, or workspace and keep the original running. Claude Code, Codex, Pi, OpenCode."
 platforms = ["linux", "macos", "windows"]
 
+# The Herdr server's own PATH doesn't reliably include Git for Windows, so
+# "sh" alone 404s when the server spawns these (see plugin log: "program not
+# found"). Absolute path below is specific to a default Git for Windows
+# install; adjust if yours lives elsewhere.
 # Headless actions: bind them to keys (see README) or use the pane menu.
 [[actions]]
 id = "tab"
 title = "Fork conversation into a new tab"
 description = "Copy the focused pane's agent conversation into a new tab in this workspace"
 contexts = ["pane"]
-command = ["sh", "forkr.sh", "--tab"]
+command = ["C:\\Program Files\\Git\\usr\\bin\\sh.exe", "forkr.sh", "--tab"]
 
 [[actions]]
 id = "split"
 title = "Fork conversation into a split (right)"
 description = "Copy the focused pane's agent conversation into a pane to the right of it"
 contexts = ["pane"]
-command = ["sh", "forkr.sh", "--split", "right"]
+command = ["C:\\Program Files\\Git\\usr\\bin\\sh.exe", "forkr.sh", "--split", "right"]
 
 [[actions]]
 id = "split-down"
 title = "Fork conversation into a split (down)"
 description = "Copy the focused pane's agent conversation into a pane below it"
 contexts = ["pane"]
-command = ["sh", "forkr.sh", "--split", "down"]
+command = ["C:\\Program Files\\Git\\usr\\bin\\sh.exe", "forkr.sh", "--split", "down"]
 
 [[actions]]
 id = "workspace"
 title = "Fork conversation into a new workspace"
 description = "Copy the focused pane's agent conversation into a new workspace"
 contexts = ["pane"]
-command = ["sh", "forkr.sh", "--workspace"]
+command = ["C:\\Program Files\\Git\\usr\\bin\\sh.exe", "forkr.sh", "--workspace"]
