@@ -3,7 +3,7 @@ name = "forkr"
 version = "0.1.0"
 min_herdr_version = "0.8.0"
 description = "Fork the focused agent's conversation into a new tab, split, or workspace and keep the original running. Claude Code, Codex, Pi, OpenCode."
-platforms = ["linux", "macos"]
+platforms = ["linux", "macos", "windows"]
 
 # Headless actions: bind them to keys (see README) or use the pane menu.
 [[actions]]
